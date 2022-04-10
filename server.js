@@ -1,5 +1,4 @@
 const express = require('express');
-const controllers = require('./controllers');
 const sequelize = require('./config/connection');
 const handlebars = require('express-handlebars')
 const hbs = handlebars.create({})
@@ -13,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`))
 
-app.use(controllers);
+app.use('./controllers/');
 
 (async () => {await sequelize.sync({ force: false })})()
 app.listen(PORT, () => {
