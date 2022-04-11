@@ -18,6 +18,8 @@ Post.init(
         date_created: {
             type: DataTypes.DATEONLY,
             allowNull: false,
+            defaultValue: (() => {let _ = new Date();
+                return _.toISOString().split('T')[0]})(),
             validate: {
                 isDate: true
             }
