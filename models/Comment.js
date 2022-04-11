@@ -18,6 +18,8 @@ Comment.init(
         date_created: {
             type: DataTypes.DATEONLY,
             allowNull: false,
+            defaultValue: (() => {let _ = new Date();
+                return _.toISOString().split('T')[0]})(),
             validate: {
                 isDate: true
             }
@@ -26,7 +28,7 @@ Comment.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'post',
+                model: 'posts',
                 key: 'id'
             }
         },
@@ -34,7 +36,7 @@ Comment.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'user',
+                model: 'users',
                 key: 'id'
             }
         }
@@ -44,7 +46,7 @@ Comment.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post',
+        modelName: 'comments',
     }
 )
 
