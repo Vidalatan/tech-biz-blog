@@ -3,7 +3,11 @@ const { Post, User, Comment } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const allPosts = await Post.findAll({ include: [{model: User, attributes: ['username'] }, Comment] });
+        const allPosts = await Post.findAll({ include: 
+            [
+                {model: User, attributes: ['username'] }, 
+                {model: Comment, include: [{model: User, attributes: ['username']}]}
+            ]});
         res.status(200).json(allPosts);
     } catch (err) {
         res.status(500).json(err)
@@ -12,7 +16,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const singPost = await Post.findByPk(req.params.id, { include: [{ model: User, attributes: ['username'] }, Comment] });
+        const singPost = await Post.findByPk(req.params.id, { include: 
+            [
+                { model: User, attributes: ['username'] }, 
+                {model: Comment, include: [{model: User, attributes: ['username']}]}
+            ]});
         res.status(200).json(singPost);
     } catch (err) {
         res.status(500).json(err)

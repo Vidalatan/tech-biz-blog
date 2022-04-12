@@ -24,10 +24,31 @@ header {
 .post-divider {
     border: 1px solid black;
     width: 60%;
-    margin-left: 20%;
 }
 
 .post-dashboard {
+    background-color: darkslategrey;
+}
+
+.single-post {
+    background-color: darkslategrey;
+    border-radius: 5px;
+    color: white;
+}
+
+.single-post p {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    max-width: 1200px;
+}
+
+.comment-on {
+    border: 2px solid black;
+    color: white;
+}
+
+.comment-on h5 {
     background-color: darkslategrey;
 }
 
@@ -56,4 +77,12 @@ header {
 
 #create-post:hover {
     border-style: inset;
+}
+
+#comments-toggle {
+    width: 150px;
+}
+
+#edit-post {
+    width: 60%;
 }

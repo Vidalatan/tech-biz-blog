@@ -1,5 +1,37 @@
 {{>logged-header}}
 
-<h3>viewing single post</h3>
+<div id="{{postData.id}}" class="container-fluid p-5">
+    <div class="single-post row justify-content-center mx-5 mb-5 p-3">
+        <h2 class="row justify-content-center mb-5">{{postData.title}}</h2>
+        <div class="post-divider mb-3"></div>
+        <h3 class="row justify-content-center mb-5">Posted by {{postData.user.username}} on {{postData.date_created}}</h3>
+        <p class="row justify-content-center mb-5 p-5">{{postData.content}}</p>
+    {{#if isAuthor}}
+    <div class="row justify-content-center px-5 mb-3">
+        <button id="edit-post" class="btn btn-outline-danger">
+                Edit
+        </button>
+    </div>
+    {{/if}}
+    </div>
+
+
+    <div class="container-fluid d-flex justify-content-center mt-5 pt-5">
+        <button id="comments-toggle" class="btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#commentCollapse" aria-expanded="false">
+                Comments
+        </button>
+        <div class="col-10 text-center collapse" id="commentCollapse">
+            <div>
+                <button id="add-comment" class="btn btn-outline-light mb-5" type="button">Add Comment</button>
+            </div>
+        {{#each postData.comments as |comment|}}
+            <div id="{{comment.id}}" class="comment-on d-flex ms-5 pe-3 justify-content-start">
+                <h5 class="me-5 mb-0 px-4">Posted by {{comment.user.username}} on {{comment.date_created}}</h5>
+                <p class="text-center">{{comment.content}}</p>
+            </div>
+        {{/each}}
+        </div>
+    </div>
+</div>
 
 <script src="/js/dashboard.js"></script>

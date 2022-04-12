@@ -11,9 +11,14 @@ router.get('/', (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const getPost = await Post.findByPk(req.params.id, { include: [ {model: User, attributes: ['username']}, Comment ] })
+        const getPost = await Post.findByPk(req.params.id, { include: 
+            [
+                {model: User, attributes: ['username']},
+                {model: Comment, include: [{model: User, attributes: ['username']}]}
+            ]});
         const postData = getPost.get({plain: true})
-        res.render('dash-post', {req, postData})
+        const isAuthor = (req.session.userid === postData.user_id)
+        res.render('dash-post', {req, postData, isAuthor: isAuthor})
     } catch (err) {
         res.status(404).json(err)
     }
