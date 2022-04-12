@@ -2,9 +2,9 @@
 
 <div class="container-fluid">
     {{#each postsData as |post|}}
-        <div id="{{post.id}}" class="post-dashboard post-format row d-flex justify-content-between p-2 m-4">
+        <div id="{{post.id}}" class="post-dashboard post-format row p-2 m-4">
             <h5 class="col-3 text-center">{{post.title}}</h5>
-            <p class="col-9 text-center">Posted on {{post.date_created}}</p>
+            <h6 class="col-9 text-center">Posted on {{post.date_created}}</h6>
         </div>
     {{/each}}
     <div class="row text-center mt-5">

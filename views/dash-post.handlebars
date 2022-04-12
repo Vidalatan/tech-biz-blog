@@ -3,7 +3,7 @@
 <div id="{{postData.id}}" class="container-fluid p-5">
     <div class="single-post row justify-content-center mx-5 mb-5 p-3">
         <h2 class="row justify-content-center mb-5">{{postData.title}}</h2>
-        <div class="post-divider mb-3"></div>
+        <div class="post-divider-partial mb-3"></div>
         <h3 class="row justify-content-center mb-5">Posted by {{postData.user.username}} on {{postData.date_created}}</h3>
         <p class="row justify-content-center mb-5 p-5">{{postData.content}}</p>
     {{#if isAuthor}}
@@ -25,9 +25,9 @@
                 <button id="add-comment" class="btn btn-outline-light mb-5" type="button">Add Comment</button>
             </div>
         {{#each postData.comments as |comment|}}
-            <div id="{{comment.id}}" class="comment-on d-flex ms-5 pe-3 justify-content-start">
-                <h5 class="me-5 mb-0 px-4">Posted by {{comment.user.username}} on {{comment.date_created}}</h5>
-                <p class="text-center">{{comment.content}}</p>
+            <div id="{{comment.id}}" class="comment-on d-flex ms-5 mb-4 pe-3 justify-content-start">
+                <h5 class="me-5 mb-0 px-4 py-5">Posted by {{comment.user.username}} on {{comment.date_created}}</h5>
+                <p class="text-centee my-4 p-3">{{comment.content}}</p>
             </div>
         {{/each}}
         </div>
