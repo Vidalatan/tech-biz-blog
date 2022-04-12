@@ -13,7 +13,7 @@ document.querySelector('.login-form').addEventListener('submit', async (event) =
         if (response.ok) {
             document.location.replace('/');
         } else {
-        alert('Failed to log in.');
+            alert('Failed to log in.');
         }
     } else {
         alert('Please enter both your Username and Password')
