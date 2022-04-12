@@ -7,6 +7,7 @@ router.post('/', async (req, res) => {
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.username = newUser.username
+            req.session.userid = newUser.id
 
             res.status(200).json(newUser);
         })
@@ -24,7 +25,6 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req,res) => {
     try {
-        console.log('ALERT USER ATTEMPTING TO LOG IN');
         const checkUser = await User.findOne({ where: { username: req.body.username } })
         if (!checkUser) { 
             res.status(404).json({ message: 'Incorrect username or password. Please try again...'}) 
@@ -39,8 +39,10 @@ router.post('/login', async (req,res) => {
         }
 
         req.session.save(() => {
+            console.log(checkUser);
             req.session.loggedIn = true;
-            req.session.username = checkUser.username
+            req.session.username = checkUser.username;
+            req.session.userid = checkUser.id;
             console.log('~ file: user-routes.js ~ line 34 ~ req.session.save ~ req.session.cookie', req.session.cookie);
             res.status(200).json({ user: checkUser, message: 'You are now logged in!' })
         })

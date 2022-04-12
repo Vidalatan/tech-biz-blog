@@ -1,5 +1,21 @@
 {{>logged-header}}
 
-<h3>creating-post</h3>
+<div class="container-fluid">
+    <h2 class="col text-center my-3">Create New Post</h2>
+    <form class="form create-post-form col-12 text-center">
+      <div class="form-group mb-4">
+        <label for="title-create">Title:</label>
+        <input class="form-input" type="text" id="title-create" />
+      </div>
+      <div class="form-group mb-4">
+        <label for="content-create">Content:</label>
+        <br>
+        <textarea rows="4" cols="50" name="content-create" id="content-create">Enter text here...</textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-outline-light" type="submit">Create</button>
+      </div>
+    </form>
+</div>
 
 <script src="/js/create-post.js"></script>

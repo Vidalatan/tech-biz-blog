@@ -33,19 +33,16 @@ header {
 
 .form-group {
     position: relative;
-    width: 65%;
-    margin-left: 15%;
 }
 
 .form-group label {
     display: inline-block;
     width: 150px;
-    text-align: right;
+    text-align: center;
 }
 
 .form-group button {
-    width: 30%;
-    margin-left: 5%;
+    width: 15%;
 }
 
 #create-post {

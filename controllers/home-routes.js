@@ -5,7 +5,6 @@ router.get('/', async (req, res) => {
     try {
         const allPosts = await Post.findAll({ include: [{model: User, attributes: ['username'] }] });
         const postsData = allPosts.map((post) => post.get({ plain: true }));
-        console.log(req.session);
         res.render('home', {req, postsData})
     } catch (err) {
         console.error(err)
