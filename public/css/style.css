@@ -5,3 +5,18 @@ body {
 h1 {
     color: aliceblue;
 }
+
+.post-format {
+    border: 2px solid black;
+    color: white;
+}
+
+.post-format h3 {
+    background-color: darkslategrey;
+}
+
+.post-divider {
+    border: 1px solid black;
+    width: 60%;
+    margin-left: 20%;
+}

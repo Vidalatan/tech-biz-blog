@@ -1,8 +1,12 @@
 {{>stnd-header}}
 
-{{#each posts as |post|}}
-
-{{!-- display existing posts --}}
-
-{{/each}}
-
+<div class="container-fluid py-5">
+    {{#each postsData as |post|}}
+        <div class="post-format container text-center px-0 mb-4">
+            <h3 class="py-3"> {{post.title}} </h3>
+            <h4> Author: {{post.user.username}} </h4>
+            <div class="post-divider mb-4"></div>
+            <p> {{post.content}} </p>
+        </div>
+    {{/each}}
+</div>
