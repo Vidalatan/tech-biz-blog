@@ -1,7 +1,16 @@
 {{>logged-header}}
 
 <div class="container-fluid">
-    {{#each yourPosts as |post|}}
-    {{!-- loop through posts retrieved for logged in user and create template that allows you to click and edit --}}
+    {{#each postsData as |post|}}
+        <div id="{{post.id}}" class="post-dashboard post-format row d-flex justify-content-between p-2 m-4">
+            <h5 class="col-3 text-center">{{post.title}}</h5>
+            <p class="col-9 text-center">Posted on {{post.date_created}}</p>
+        </div>
     {{/each}}
+    <div class="row text-center">
+        <button id="create-post">+ New Post</button>
+    </div>
 </div>
+
+
+<script src="./js/dashboard.js"></script>

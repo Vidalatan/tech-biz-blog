@@ -8,6 +8,7 @@ header {
 
 .post-format {
     border: 2px solid black;
+    border-radius: 5px;
     color: white;
 }
 
@@ -26,6 +27,10 @@ header {
     margin-left: 20%;
 }
 
+.post-dashboard {
+    background-color: darkslategrey;
+}
+
 .form-group {
     position: relative;
     width: 65%;
@@ -41,4 +46,17 @@ header {
 .form-group button {
     width: 30%;
     margin-left: 5%;
+}
+
+#create-post {
+    width: 20%;
+    margin-left: 40%;
+    background-color: darkslategrey;
+    border-color: black;
+    color: white;
+    border-style: solid;
+}
+
+#create-post:hover {
+    border-style: inset;
 }
