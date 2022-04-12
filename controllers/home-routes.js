@@ -5,8 +5,8 @@ router.get('/', async (req, res) => {
     try {
         const allPosts = await Post.findAll({ include: [{model: User, attributes: ['username'] }] });
         const postsData = allPosts.map((post) => post.get({ plain: true }));
-        console.log(postsData);
-        res.render('home', {postsData})
+        console.log(req.session);
+        res.render('home', {req, postsData})
     } catch (err) {
         console.error(err)
         res.status(404).send('Page not found')

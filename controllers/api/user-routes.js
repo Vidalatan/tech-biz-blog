@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req,res) => {
     try {
+        console.log('ALERT USER ATTEMPTING TO LOG IN');
         const checkUser = await User.findOne({ where: { username: req.body.username } })
         if (!checkUser) { 
             res.status(404).json({ message: 'Incorrect username or password. Please try again...'}) 
@@ -24,6 +25,7 @@ router.post('/login', async (req,res) => {
         }
 
         const validPassword = await checkUser.checkPassword(req.body.password);
+        console.log(validPassword);
         if (!validPassword) {
             res.status(404).json({ message: 'Incorrect username or password. Please try again...'})
             return;
@@ -31,7 +33,9 @@ router.post('/login', async (req,res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true;
+            req.session.username = checkUser.username
             console.log('~ file: user-routes.js ~ line 34 ~ req.session.save ~ req.session.cookie', req.session.cookie);
+            res.status(200).json({ user: checkUser, message: 'You are now logged in!' })
         })
     } catch (err) {
         console.error(err);

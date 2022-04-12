@@ -1,4 +1,8 @@
-{{>stnd-header}}
+{{#if req.session.loggedIn}}
+    {{>logged-header}}
+{{else}}
+    {{>stnd-header}}
+{{/if}}
 
 <div class="container-fluid py-5">
     {{#each postsData as |post|}}
