@@ -32,11 +32,36 @@ document.querySelector('.comment-form') && document.querySelector('.comment-form
             headers: { 'Content-Type': 'application/json' }
         })
         if (response.ok) {
-            document.location.reload()
+            document.location.reload();
         } else {
             alert('Something went terribly wrong...')
         }
     } else {
         alert('Please add content to your comment before attempting to post it...')
+    }
+})
+
+document.querySelector('#edit-post') && document.querySelector('#edit-post').addEventListener('click', async event => {
+    const editBtn = document.querySelector('#edit-post')
+    const postContent = document.querySelector('#post-content')
+    if (editBtn.innerText === 'Edit') {
+        const origCont = postContent.innerText
+        editBtn.className = 'btn btn-danger'
+        editBtn.innerText = 'Confirm'
+        postContent.innerHTML = `<textarea name="new-content" id="new-content" cols="30" rows="10">${origCont}</textarea>`
+    } else {
+        const response = await fetch('/api/posts/edit', {
+            method: 'PUT',
+            body: JSON.stringify({
+                content: postContent.childNodes[0].value.trim(),
+                post_id: postContent.parentNode.id
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        if (response.ok) {
+            document.location.reload();
+        } else {
+            alert('Something went terribly wrong...')
+        }
     }
 })

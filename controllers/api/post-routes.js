@@ -40,4 +40,24 @@ router.post('/new', async (req, res) => {
     }
 })
 
+router.put('/edit', async (req, res) => {
+    try {
+        const updPost = await Post.update(
+            { content: req.body.content, edited: true },
+            { where: { id: req.body.post_id }})
+        res.status(200).json(updPost)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.delete('/destroy', async (req, res) => {
+    try {
+        const delPost = await Post.destroy({where: {id: req.body.post_id} })
+        res.status(200).json(delPost)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router;

@@ -5,7 +5,7 @@
         <h2 class="row justify-content-center mb-5">{{postData.title}}</h2>
         <div class="post-divider-partial mb-3"></div>
         <h3 class="row justify-content-center mb-5">Posted by {{postData.user.username}} on {{postData.date_created}}</h3>
-        <p class="row justify-content-center mb-5 p-5">{{postData.content}}</p>
+        <p id="post-content" class="row justify-content-center mb-5 p-5">{{postData.content}}</p>
     {{#if isAuthor}}
     <div class="row justify-content-center px-5 mb-3">
         <button id="edit-post" class="btn btn-outline-danger">
