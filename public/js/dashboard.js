@@ -1,9 +1,9 @@
 document.querySelectorAll('.post-dashboard').forEach( post => {
     post.addEventListener('click', event => {
-        document.location.replace(`./post/${event.currentTarget.id}`)
+        document.location.replace(`./dashboard/post/${event.currentTarget.id}`)
     })
 })
 
 document.querySelector('#create-post').addEventListener('click', event => {
-    document.location.replace('./post/new')
+    document.location.replace('./dashboard/post/')
 })
