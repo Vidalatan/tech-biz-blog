@@ -73,6 +73,14 @@ header {
     border-radius: 5px;
 }
 
+.add-comment-off {
+    display: none;
+}
+
+.add-comment-on {
+    display: block;
+}
+
 .form-group {
     position: relative;
 }

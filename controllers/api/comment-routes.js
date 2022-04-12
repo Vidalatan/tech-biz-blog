@@ -26,7 +26,7 @@ router.post('/new', async (req, res) => {
             post_id: req.body.post_id,
             user_id: req.session.userid
         })
-        res.status(200).json(newPost)
+        res.status(200).json(newComment)
     } catch (err) {
         res.status(500).json(err)
     }
