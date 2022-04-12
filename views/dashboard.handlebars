@@ -1,1 +1,7 @@
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam quis exercitationem id cupiditate officia. Quo, iure. Quibusdam, similique eius. Officia, repudiandae obcaecati laborum impedit cumque praesentium sint? Saepe, facilis repellat.</p>
+{{>logged-header}}
+
+<div class="container-fluid">
+    {{#each yourPosts as |post|}}
+    {{!-- loop through posts retrieved for logged in user and create template that allows you to click and edit --}}
+    {{/each}}
+</div>
