@@ -8,7 +8,7 @@ const commentdata = [
     },
     {
         content: 'No. There is no such thing. You just need to be better',
-        post_id: 1,
+        post_id: 2,
         user_id: 3
     }
 ]
