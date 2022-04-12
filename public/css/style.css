@@ -20,3 +20,19 @@ h1 {
     width: 60%;
     margin-left: 20%;
 }
+
+.form-group {
+    position: relative;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+.form-group button {
+    width: 25%;
+}
