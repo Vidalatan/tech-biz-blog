@@ -19,3 +19,13 @@ document.querySelector('.login-form').addEventListener('submit', async (event) =
         alert('Please enter both your Username and Password')
     }
 });
+
+document.querySelector('#nav-home').addEventListener('click', event => {
+    event.preventDefault();
+    document.location.replace('/')
+});
+
+document.querySelector('#nav-dash').addEventListener('click', async (event) => {
+    event.preventDefault();
+    document.location.replace('/dashboard')
+});

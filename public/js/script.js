@@ -15,3 +15,13 @@ document.querySelector('#nav-logout') && document.querySelector('#nav-logout').a
         }
     }
 })
+
+document.querySelector('#nav-home').addEventListener('click', event => {
+    event.preventDefault();
+    document.location.replace('/')
+})
+
+document.querySelector('#nav-dash').addEventListener('click', async (event) => {
+    event.preventDefault();
+    document.location.replace('/dashboard')
+})
