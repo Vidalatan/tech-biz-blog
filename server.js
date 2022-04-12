@@ -11,7 +11,9 @@ const PORT = process.env.PORT || 3001;
 const sesh = {
   secret: process.env.SESH_SECRET,
   cookie: {
-    maxAge: 86400
+    maxAge: 86400,
+    httpOnly: true,
+    sameSite: 'strict'
   },
   resave: false,
   saveUninitialized: true,
@@ -32,6 +34,5 @@ app.use(express.static(`${__dirname}/public`))
 app.use(require('./controllers/'));
 
 (async () => {await sequelize.sync({ force: false })})()
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
+app.listen(PORT, () => { console.log(`App listening on port ${PORT}!`);
 });

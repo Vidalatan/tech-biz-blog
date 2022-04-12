@@ -11,8 +11,14 @@ router.post('/', async (req, res) => {
             res.status(200).json(newUser);
         })
     } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
+        switch (err.name) {
+            case 'SequelizeUniqueConstraintError':
+                res.status(406).json(err)
+                break;
+            default:
+                res.status(500).json(err);
+                break;
+        }
     }
 })
 

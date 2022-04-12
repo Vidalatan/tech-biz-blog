@@ -11,6 +11,11 @@ header {
     color: white;
 }
 
+.post-format:hover {
+    border-style: inset;
+    cursor: pointer;
+}
+
 .post-format h3 {
     background-color: darkslategrey;
 }

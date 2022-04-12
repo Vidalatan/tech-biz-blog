@@ -13,7 +13,17 @@ document.querySelector('.login-form').addEventListener('submit', async (event) =
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert('Failed to log in.');
+            switch (response.status) {
+                case 404:
+                    alert('Incorrect username or password. Please try again')
+                    break;
+                case 500:
+                    alert('Server Error. Please try again later.')
+                    break;
+                default:
+                    alert('Unknown Error')
+                    break;
+            }
         }
     } else {
         alert('Please enter both your Username and Password')
@@ -37,7 +47,15 @@ document.querySelector('.signup-form').addEventListener('submit', async (event) 
             if (response.ok) {
                 document.location.replace('/');
             } else {
-                alert('Failed to log in.');
+                switch (response.status) {
+                    case 406:
+                        alert('Sorry, that username already exists. Please try another...')
+                        break;
+                
+                    default:
+                        alert('Action Unsuccessful')
+                        break;
+                }
             }
         } else {
             alert('Your password and confirmation don\'t match. Please try again.')

@@ -6,9 +6,9 @@
 
 <div class="container-fluid py-5">
     {{#each postsData as |post|}}
-        <div class="post-format container text-center px-0 mb-4">
+        <div id="{{post.id}}" class="post-format container text-center px-0 mb-4">
             <h3 class="py-3"> {{post.title}} </h3>
-            <h4> Author: {{post.user.username}} </h4>
+            <p> Posted by '{{post.user.username}}' on {{post.date_created}}</p>
             <div class="post-divider mb-4"></div>
             <p> {{post.content}} </p>
         </div>
