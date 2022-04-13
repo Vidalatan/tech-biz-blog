@@ -113,5 +113,9 @@ header {
 }
 
 #edit-post {
-    width: 60%;
+    width: 25%;
+}
+
+#delete-post {
+    width: 25%;
 }

@@ -65,3 +65,18 @@ document.querySelector('#edit-post') && document.querySelector('#edit-post').add
         }
     }
 })
+
+document.querySelector('#delete-post') && document.querySelector('#delete-post').addEventListener('click', async event => {
+    if (confirm('Are you sure you wish to delete this post?')) {
+        const post_id = document.querySelector('.single-post').id
+        console.log(post_id);
+        const response = await fetch(`/api/posts/destroy/${post_id}`,{
+            method: 'DELETE'
+        })
+        if (response.ok) {
+            document.location.replace('/dashboard')
+        } else {
+            alert('Something went terribly wrong...')
+        }
+    }
+})

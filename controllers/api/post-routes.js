@@ -51,11 +51,13 @@ router.put('/edit', async (req, res) => {
     }
 })
 
-router.delete('/destroy', async (req, res) => {
+router.delete('/destroy/:id', async (req, res) => {
     try {
-        const delPost = await Post.destroy({where: {id: req.body.post_id} })
-        res.status(200).json(delPost)
+        const delComments = await Comment.destroy({where: {post_id: req.params.id}})
+        const delPost = await Post.destroy({where: {id: req.params.id}})
+        res.status(200).json({delComments, delPost})
     } catch (err) {
+        console.log(err);
         res.status(500).json(err)
     }
 })
