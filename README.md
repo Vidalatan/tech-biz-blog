@@ -149,7 +149,7 @@ encouraged to assist in any way applicable to your skills!
 
 ![Finished Project Image](./assets/images/FinishedProductImage.png)
 
-Link to live [Tech Biz Blog](https://{git-username}.github.io/{project-name})
+Link to live [Tech Biz Blog](https://tech-biz-blog.herokuapp.com/)
 
-Link to [Code Repository](https://github.com/{git-username}/{project-name})
+Link to [Code Repository](https://github.com/vidalatan/tech-biz-blog)
 
